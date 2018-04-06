@@ -1,0 +1,143 @@
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\ApplicationInsights.config
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\csc.exe
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\vbc.exe
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\VBCSCompiler.exe
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\DFind.Api.dll.config
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\DFind.Api.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\DFind.Api.pdb
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Antlr3.Runtime.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\DFind.Domain.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\DFind.Infra.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\EntityFramework.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\EntityFramework.SqlServer.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.Web.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.ApplicationInsights.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Newtonsoft.Json.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Net.Http.Formatting.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Helpers.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Http.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Http.WebHost.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Mvc.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Optimization.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Razor.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Deployment.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.WebPages.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Razor.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\WebGrease.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\DFind.Domain.pdb
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\DFind.Infra.pdb
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\EntityFramework.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\EntityFramework.SqlServer.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.Web.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.ApplicationInsights.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Newtonsoft.Json.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Net.Http.Formatting.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Helpers.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Http.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Http.WebHost.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Mvc.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Optimization.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.Razor.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.WebPages.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Deployment.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Razor.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\bin\Antlr3.Runtime.pdb
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\obj\Debug\DFind.Api.csprojResolveAssemblyReference.cache
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\obj\Debug\DFind.Api.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Api\obj\Debug\DFind.Api.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\ApplicationInsights.config
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\csc.exe
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\vbc.exe
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\VBCSCompiler.exe
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Api.dll.config
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Api.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Api.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Antlr3.Runtime.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Domain.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Infra.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\EntityFramework.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\EntityFramework.SqlServer.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.Web.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Newtonsoft.Json.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Net.Http.Formatting.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Cors.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Helpers.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Http.Cors.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Http.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Http.WebHost.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Mvc.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Optimization.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Razor.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.WebPages.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Razor.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\WebGrease.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Domain.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Domain.dll.config
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Infra.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\DFind.Infra.dll.config
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\EntityFramework.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\EntityFramework.SqlServer.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.Web.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Net.Http.Formatting.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Http.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Http.Cors.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Newtonsoft.Json.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Helpers.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Http.WebHost.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Mvc.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Optimization.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.Razor.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.WebPages.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\System.Web.WebPages.Razor.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\Antlr3.Runtime.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\obj\Debug\DFind.Api.csprojResolveAssemblyReference.cache
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\obj\Debug\DFind.Api.csproj.CoreCompileInputs.cache
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\obj\Debug\DFind.Api.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\obj\Debug\DFind.Api.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\HtmlAgilityPack.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\HtmlAgilityPack.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Api\bin\HtmlAgilityPack.xml

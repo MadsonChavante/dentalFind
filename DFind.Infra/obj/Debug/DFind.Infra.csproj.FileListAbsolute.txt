@@ -1,0 +1,41 @@
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.dll.config
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.pdb
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\DFind.Domain.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\DFind.Domain.pdb
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.csprojResolveAssemblyReference.cache
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.dll
+C:\Users\143480\documents\visual studio 2015\Projects\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.pdb
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.dll.config
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.dll
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.pdb
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Domain.dll
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.dll
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Domain.pdb
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.xml
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.csprojResolveAssemblyReference.cache
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.dll
+C:\Users\143480\Desktop\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.dll.config
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Infra.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Domain.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Domain.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\DFind.Domain.dll.config
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.csprojResolveAssemblyReference.cache
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.csproj.CoreCompileInputs.cache
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\obj\Debug\DFind.Infra.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Madson\Desktop\DFind.Domain\DFind.Infra\bin\Debug\HtmlAgilityPack.xml
