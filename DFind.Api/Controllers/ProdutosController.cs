@@ -43,7 +43,7 @@ namespace DFind.Api.Controllers
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, encontrados);
-        }
+        }   
 
         [Route("produtos")]
         public HttpResponseMessage GetProdutos()

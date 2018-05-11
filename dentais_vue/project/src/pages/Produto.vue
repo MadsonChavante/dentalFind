@@ -29,15 +29,17 @@
           Encontramos preços
         </div>
         <div class="iii">
+          em {{produto.consultas.length}} lojas.
         </div>
       </div>
     </div>
-
+    <Consulta v-for="consulta in produto.consultas" v-bind:todo="consulta" v-bind:key="consulta.id"/>
   </div>
 </template>
 
 <script>
 import Topo from '@/components/Topo'
+import Consulta from '@/components/Consulta'
 export default {
   data () {
     return {
@@ -49,7 +51,7 @@ export default {
       }
     }
   },
-  components: { Topo },
+  components: { Topo,Consulta },
   name: 'Produto',
   created: function () {
     this.axios.get("http://localhost:18612/produtos/" + this.$route.params.id, )
@@ -67,7 +69,7 @@ export default {
     SuccessGetC: function (dataR) {
       console.log(dataR);
       for (var i = 0; i < dataR.data.length; i++) {
-        this.produto.consultas.push({ preco: dataR.data[i].preco, titulo: dataR.data[i].titulo, descricao: dataR.data[i].descricao });
+        this.produto.consultas.push({ preco: dataR.data[i].preco, titulo: dataR.data[i].titulo, descricao: dataR.data[i].descricao, site: dataR.data[i].site  });
         if(i==0){
           this.produto.melhorConsulta = { preco: dataR.data[0].preco, titulo: dataR.data[0].titulo, descricao: dataR.data[0].descricao, site: dataR.data[0].site}
         }
@@ -170,10 +172,14 @@ export default {
   font-weight:bold;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: 5px;
+  display: flex;
 }
 .ii{
   color: white;
 }
-
+.iii{
+  margin-left: 10px;
+  color: chartreuse;
+}
 
 </style>
