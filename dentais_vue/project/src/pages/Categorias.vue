@@ -6,7 +6,6 @@
     </div>
   </div>
 </template>
-
 <script>
 
 import Topo from '@/components/Topo'
@@ -23,22 +22,23 @@ export default {
   methods: {
     getCategorias: function () {
       // GET
-      this.axios.get("http://localhost:18612/categorias", )
-        .then(this.SuccessGet)
-        .catch(FailureGet);
+        this.axios.get("http://localhost:18612/categorias", )
+          .then(this.SuccessGet)
+          .catch(FailureGet);
     },
     SuccessGet: function (dataR) {
       console.log(dataR);
       for (var i = 0; i < dataR.data.length; i++) {
         this.itens.push({ titulo: dataR.data[i].titulo, imagem: dataR.data[i].imagem });
       }
-    }
+    },
+    FailureGet:function(data) { console.log('error', data); }
   },
   mounted: function(){
     this.getCategorias();
   }
 }
-function FailureGet (data) { console.log('error', data); }
+
 
 </script>
 
