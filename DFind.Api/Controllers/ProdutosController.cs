@@ -1,9 +1,12 @@
 ﻿using DFind.Domain;
 using DFind.Infra.DataContexts;
+using System;
+using System.Collections;
 using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -15,6 +18,33 @@ namespace DFind.Api.Controllers
     {
         private DFindDataContext db = new DFindDataContext();
 
+        [HttpGet]
+        [Route("pesquisar/{algo}")]
+        public HttpResponseMessage pesquisarProdutos(string algo)
+        {
+            Regex ER = new Regex(algo, RegexOptions.None);
+            var resultado = db.Produtos.Include("Categoria").ToList();
+            var encontrados = new ArrayList();
+            String[] tituloProdutos = new String[resultado.Count];
+            
+            for (int i = 0; i < resultado.Count; i++)
+            {
+                tituloProdutos[i] = resultado[i].Titulo;
+            }
+            
+            Console.WriteLine(resultado.Count);
+
+            for (int i = 0; i < tituloProdutos.Length; i++)
+            {
+                if (ER.IsMatch(tituloProdutos[i]))
+                {
+                    encontrados.Add(resultado[i]);
+                }
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, encontrados);
+        }
+
         [Route("produtos")]
         public HttpResponseMessage GetProdutos()
         {
@@ -24,7 +54,7 @@ namespace DFind.Api.Controllers
 
         [Route("produtos/{produtoId}")]
         public HttpResponseMessage GetProduto(int produtoId)
-        { 
+        {
             var resultado = db.Produtos.Include("Categoria").Where(x => x.Id == produtoId);
             Produto p = resultado.First();
             
@@ -41,7 +71,7 @@ namespace DFind.Api.Controllers
         [Route("categorias/{categoriaId}/produtos")]
         public HttpResponseMessage GetProdutosDaCategoria(int categoriaId)
         {
-            var resultado = db.Produtos.Include("Categoria").Where(x => x.CategoriaId == categoriaId).ToList(); 
+            var resultado = db.Produtos.Include("Categoria").Where(x => x.CategoriaId == categoriaId).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, resultado);
         }
 
@@ -66,7 +96,7 @@ namespace DFind.Api.Controllers
             }
             catch
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError,"falha ao tentar atualizar");
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao tentar atualizar");
             }
         }
 
@@ -88,7 +118,7 @@ namespace DFind.Api.Controllers
             }
             catch
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError,"falha ao add produto");
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao add produto");
             }
         }
 
@@ -145,11 +175,22 @@ namespace DFind.Api.Controllers
             }
             try
             {
-                db.Consulta.Add(consulta);
-                db.SaveChanges();
+                consulta.PesquisarPreco();
 
-                var result = consulta;
-                return Request.CreateResponse(HttpStatusCode.OK, result);
+                if (consulta.preco != null)
+                {
+                    db.Consulta.Add(consulta);
+                    db.SaveChanges();
+
+                    var result = consulta;
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao consultar o preço");
+                }
+
+
             }
             catch
             {
@@ -182,7 +223,7 @@ namespace DFind.Api.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();    
+            db.Dispose();
         }
     }
 }
