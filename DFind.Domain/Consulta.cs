@@ -46,6 +46,26 @@ namespace DFind.Domain
             CultureInfo culturaBrasileira = new CultureInfo("pt-BR");
             return deci.ToString("C", culturaBrasileira);
         }
+        public void loucura(string site)
+        {
+            try
+            {
+                HtmlDocument htmlDoc = new HtmlDocument();
+
+                using (WebClient client = new WebClient())
+                {
+                    string html = client.DownloadString(site);
+                    htmlDoc.LoadHtml(html);
+                }
+                
+                var htmlNodes = htmlDoc.DocumentNode.SelectNodes("//td/input");
+                
+            }
+            catch
+            {
+                
+            }
+        }
         
     }
 }
