@@ -11,7 +11,7 @@ namespace DFind.Domain
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string preco { get; set; }
-        public string site { get; set; }
+        public string site { get; set; }    
         public string descricao { get; set; }
         public string caminho { get; set; }
         public int ProdutoId { get; set; }
@@ -46,26 +46,9 @@ namespace DFind.Domain
             CultureInfo culturaBrasileira = new CultureInfo("pt-BR");
             return deci.ToString("C", culturaBrasileira);
         }
-        public void loucura(string site)
-        {
-            try
-            {
-                HtmlDocument htmlDoc = new HtmlDocument();
-
-                using (WebClient client = new WebClient())
-                {
-                    string html = client.DownloadString(site);
-                    htmlDoc.LoadHtml(html);
-                }
-                
-                var htmlNodes = htmlDoc.DocumentNode.SelectNodes("//td/input");
-                
-            }
-            catch
-            {
-                
-            }
-        }
+       
         
+
+
     }
 }

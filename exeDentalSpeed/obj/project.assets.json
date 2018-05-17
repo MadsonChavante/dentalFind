@@ -3896,11 +3896,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Madson\\Desktop\\vs\\vs.csproj",
+      "projectUniqueName": "C:\\Users\\Madson\\Documents\\dentalFind\\exeDentalSpeed\\vs.csproj",
       "projectName": "vs",
-      "projectPath": "C:\\Users\\Madson\\Desktop\\vs\\vs.csproj",
+      "projectPath": "C:\\Users\\Madson\\Documents\\dentalFind\\exeDentalSpeed\\vs.csproj",
       "packagesPath": "C:\\Users\\Madson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Madson\\Desktop\\vs\\obj\\",
+      "outputPath": "C:\\Users\\Madson\\Documents\\dentalFind\\exeDentalSpeed\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

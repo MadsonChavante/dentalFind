@@ -100,6 +100,74 @@ namespace DFind.Api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("varreduraSpeed")]
+        public HttpResponseMessage varreduraSpeed()
+        {
+            try
+            {
+                ExeSpeed exeSpeed = new ExeSpeed();
+                exeSpeed.exe("https://dentalspeed.com/grupo/contra-angulo-protese");
+                ArrayList arrayList = exeSpeed.getDentalSpeed();
+                foreach (Verificacao v in arrayList)
+                {
+                    
+                    var res = db.Produtos.Where(x => x.Titulo == v.ProdutoNome).FirstOrDefault();
+                    if (res != null)
+                    {
+
+                        var resultado = db.Consulta.Where(x => x.site == v.site).ToList();
+                        if(resultado == null)
+                        {
+                            Consulta consulta = new Consulta();
+                            consulta.ProdutoId = res.Id;
+                            consulta.site = v.site;
+                            consulta.caminho = v.caminho;
+                            consulta.descricao = v.descricao;
+                            consulta.Titulo = v.Titulo;
+
+                            consulta.PesquisarPreco();
+
+                            if (consulta.preco != null)
+                            {
+                                db.Consulta.Add(consulta);
+                                db.SaveChanges();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Produto produto = new Produto();
+                        produto.Titulo = v.ProdutoNome;
+                        produto.CategoriaId = 1;
+                        produto.imagem = v.Imagem;
+                        db.Produtos.Add(produto);
+                        db.SaveChanges();
+                        Consulta consulta = new Consulta();
+                        consulta.ProdutoId = produto.Id;
+                        consulta.site = v.site;
+                        consulta.caminho = v.caminho;
+                        consulta.descricao = v.descricao;
+                        consulta.Titulo = v.Titulo;
+
+                        consulta.PesquisarPreco();
+
+                        if (consulta.preco != null)
+                        {
+                            db.Consulta.Add(consulta);
+                            db.SaveChanges();
+                        }
+                    }    
+                }
+                return Request.CreateResponse(HttpStatusCode.InternalServerError,"ok");
+            }
+            catch
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao add produto");
+            }
+        }
+
+
         [HttpPost]
         [Route("produto")]
         public HttpResponseMessage PostProduto(Produto produto)

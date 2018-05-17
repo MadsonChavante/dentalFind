@@ -8,3 +8,13 @@ C:\Users\Madson\Desktop\vs\obj\Debug\netcoreapp2.0\vs.AssemblyInfoInputs.cache
 C:\Users\Madson\Desktop\vs\obj\Debug\netcoreapp2.0\vs.AssemblyInfo.cs
 C:\Users\Madson\Desktop\vs\obj\Debug\netcoreapp2.0\vs.dll
 C:\Users\Madson\Desktop\vs\obj\Debug\netcoreapp2.0\vs.pdb
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\bin\Debug\netcoreapp2.0\vs.deps.json
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\bin\Debug\netcoreapp2.0\vs.runtimeconfig.json
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\bin\Debug\netcoreapp2.0\vs.runtimeconfig.dev.json
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\bin\Debug\netcoreapp2.0\vs.dll
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\bin\Debug\netcoreapp2.0\vs.pdb
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\obj\Debug\netcoreapp2.0\vs.csproj.CoreCompileInputs.cache
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\obj\Debug\netcoreapp2.0\vs.AssemblyInfoInputs.cache
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\obj\Debug\netcoreapp2.0\vs.AssemblyInfo.cs
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\obj\Debug\netcoreapp2.0\vs.dll
+C:\Users\Madson\Documents\dentalFind\exeDentalSpeed\obj\Debug\netcoreapp2.0\vs.pdb

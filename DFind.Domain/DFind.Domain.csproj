@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Categoria.cs" />
     <Compile Include="Consulta.cs" />
+    <Compile Include="ExeSpeed.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,13 +4,14 @@ using System.Linq;
 using HtmlAgilityPack;
 using System.Globalization;
 using System.Net;
-					
+
 public class Program
 {
-	public static void Main()
-	{
-		exe("https://dentalspeed.com/segmento/pecas-de-mao");
-	}
+	//public static void Main()
+	//{
+		//exe("https://dentalspeed.com/segmento/pecas-de-mao");
+		//exe("https://dentalspeed.com/area/uso-continuo");
+	//}
 	public static HtmlDocument StringToHtml(string site){
 	
 		HtmlDocument htmlDoc = new HtmlDocument();
@@ -27,7 +28,12 @@ public class Program
 		{	
 			var htmlDoc = StringToHtml(site);
 			if(htmlDoc.DocumentNode.SelectSingleNode("//article").Id == "article_default"){
-				var htmlNodes = htmlDoc.DocumentNode.SelectNodes("//article/div[2]/div");	
+				var htmlNodes = htmlDoc.DocumentNode.SelectNodes("//article");
+				if(htmlDoc.DocumentNode.SelectSingleNode("//article/div").GetAttributeValue("class","erro") == "lista-result-busca"){
+					htmlNodes = htmlDoc.DocumentNode.SelectNodes("//article/div[@class='lista-result-busca']/div");
+				}else{
+					htmlNodes = htmlDoc.DocumentNode.SelectNodes("//article/div[@class='lista-result-busca col-xs-24']/div");	
+				}
 				foreach (var node in htmlNodes)
 				{
 					exe(node.Descendants().ElementAt(1).Descendants().ElementAt(1).GetAttributeValue("href","erro para pegar o site no artigo padrao"));
@@ -52,6 +58,11 @@ public class Program
                 htmlNodes = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='modelo-vitrine']/div[1]/span").InnerHtml;
 				Console.WriteLine(htmlNodes);
                 htmlNodes = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='mostra-valores']/span[2]/span[2]").GetAttributeValue("content","erro no modelo");
+				Console.WriteLine(htmlNodes);
+				htmlNodes = htmlDoc.DocumentNode.SelectSingleNode("/html/head/meta[6]").GetAttributeValue("content","erro no modelo");
+				Console.WriteLine(htmlNodes);
+				htmlNodes = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='modelo-vitrine']/div[1]/h2/p").InnerHtml;
+				htmlNodes = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='modelo-vitrine']/div[1]/div/div/span[1]/img").GetAttributeValue("src", "erro na imagem do produto");
 				Console.WriteLine(htmlNodes);
 			}
 			
