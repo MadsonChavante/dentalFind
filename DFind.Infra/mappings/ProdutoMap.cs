@@ -9,16 +9,13 @@ namespace DFind.Infra.mappings
         {
             ToTable("Produto");
             HasKey(x => x.Id);
-
+            
             Property(x => x.Titulo).HasMaxLength(160).IsRequired();
-            //Property(x => x.Preco).IsRequired();
-
+            
             HasRequired(x => x.Categoria);
-            //caso a categoria ser opcional 
-            //HasOptional
-            //caso seja muitas categorias
-            //HasMany
-
+            Property(x => x.Economia).IsOptional();
+            Property(x => x.MelhorConsulta).IsOptional();
+            Property(x => x.PiorConsulta).IsOptional();
         }
     }
 }

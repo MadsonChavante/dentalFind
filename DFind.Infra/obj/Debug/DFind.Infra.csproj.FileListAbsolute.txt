@@ -53,6 +53,9 @@ C:\Users\Madson\Documents\dentalFind\DFind.Infra\bin\Debug\EntityFramework.SqlSe
 C:\Users\Madson\Documents\dentalFind\DFind.Infra\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\Madson\Documents\dentalFind\DFind.Infra\bin\Debug\HtmlAgilityPack.xml
 C:\Users\Madson\Documents\dentalFind\DFind.Infra\obj\Debug\DFind.Infra.csprojResolveAssemblyReference.cache
+C:\Users\Madson\Documents\dentalFind\DFind.Infra\obj\Debug\DFind.Infra.Migrations.InitialCreate.resources
+C:\Users\Madson\Documents\dentalFind\DFind.Infra\obj\Debug\DFind.Infra.csproj.GenerateResource.Cache
 C:\Users\Madson\Documents\dentalFind\DFind.Infra\obj\Debug\DFind.Infra.csproj.CoreCompileInputs.cache
 C:\Users\Madson\Documents\dentalFind\DFind.Infra\obj\Debug\DFind.Infra.dll
 C:\Users\Madson\Documents\dentalFind\DFind.Infra\obj\Debug\DFind.Infra.pdb
+C:\Users\Madson\Documents\dentalFind\DFind.Infra\obj\Debug\DFind.Infra.Migrations.atl1.resources

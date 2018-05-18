@@ -10,10 +10,14 @@ namespace DFind.Domain
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
-        public string preco { get; set; }
-        public string site { get; set; }    
-        public string descricao { get; set; }
-        public string caminho { get; set; }
+        
+        public decimal Resposta { get; set; }
+
+        public string RespostaString { get; set; }
+        public string Site { get; set; }    
+        public string Descricao { get; set; }
+        public string Caminho { get; set; }
+
         public int ProdutoId { get; set; }
         public virtual Produto Produto { get; set; }
         
@@ -26,29 +30,27 @@ namespace DFind.Domain
 
                 using (WebClient client = new WebClient())
                 {
-                    string html = client.DownloadString(this.site);
+                    string html = client.DownloadString(this.Site);
                     doc.LoadHtml(html);
                 }
 
                 //Titulo
-                HtmlNode no = doc.DocumentNode.SelectSingleNode(this.caminho);
-                this.preco = FormatarPreco(no.InnerText);
+                HtmlNode no = doc.DocumentNode.SelectSingleNode(this.Caminho);
+                FormatarPreco(no.InnerText);
             }
             catch
             {
-                this.preco = null;
+                this.RespostaString = null;
             }
         }
-        public string FormatarPreco(string str)
+        public void FormatarPreco(string str)
         {
             string test = str.Replace("&#82;&#36;32.25", "32,25").Replace("&#82;&#36;", "").Replace(" ","").Replace("R$","").Replace("noboletoÃ vista", "");
             decimal deci = Convert.ToDecimal(test);
+            this.Resposta = deci;
             CultureInfo culturaBrasileira = new CultureInfo("pt-BR");
-            return deci.ToString("C", culturaBrasileira);
+            this.RespostaString = deci.ToString("C", culturaBrasileira);
         }
-       
-        
-
 
     }
 }

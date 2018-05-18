@@ -22,17 +22,16 @@ namespace DFind.Api.Controllers
         [Route("pesquisar/{algo}")]
         public HttpResponseMessage pesquisarProdutos(string algo)
         {
-            Regex ER = new Regex(algo, RegexOptions.None);
+            Regex ER = new Regex(algo, RegexOptions.IgnoreCase);
             var resultado = db.Produtos.Include("Categoria").ToList();
             var encontrados = new ArrayList();
             String[] tituloProdutos = new String[resultado.Count];
-            
+
             for (int i = 0; i < resultado.Count; i++)
             {
                 tituloProdutos[i] = resultado[i].Titulo;
             }
-            
-            Console.WriteLine(resultado.Count);
+
 
             for (int i = 0; i < tituloProdutos.Length; i++)
             {
@@ -40,10 +39,14 @@ namespace DFind.Api.Controllers
                 {
                     encontrados.Add(resultado[i]);
                 }
+                if (encontrados.Count == 5)
+                {
+                    i = tituloProdutos.Length;
+                }
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, encontrados);
-        }   
+        }
 
         [Route("produtos")]
         public HttpResponseMessage GetProdutos()
@@ -57,7 +60,7 @@ namespace DFind.Api.Controllers
         {
             var resultado = db.Produtos.Include("Categoria").Where(x => x.Id == produtoId);
             Produto p = resultado.First();
-            
+
             return Request.CreateResponse(HttpStatusCode.OK, resultado);
         }
 
@@ -78,21 +81,54 @@ namespace DFind.Api.Controllers
         [Route("produtos/{produtoId}/consultas")]
         public HttpResponseMessage GetConsultasDoProduto(int produtoId)
         {
-            var resultado = db.Consulta.Include("Produto").Where(x => x.ProdutoId == produtoId).ToList();
-            if (resultado == null)
+            var consultas = db.Consulta.Include("Produto").Where(x => x.ProdutoId == produtoId).ToList();
+            var produto = db.Produtos.Where(x => x.Id == produtoId).FirstOrDefault();
+            
+            Consulta MelhorConsulta = new Consulta();
+            Consulta PiorConsulta = new Consulta();
+
+            if (consultas == null || produto == null)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
             try
             {
-                foreach (Consulta c in resultado)
+                int i = 0;
+                foreach (Consulta c in consultas)
                 {
                     c.PesquisarPreco();
+
+                    if (i == 0)
+                    {
+                        MelhorConsulta = c;
+                        PiorConsulta = c;
+                    }
+                    else
+                    {
+                        if (c.Resposta < MelhorConsulta.Resposta)
+                        {
+                            MelhorConsulta = c;
+                        }
+                        else if (c.Resposta > PiorConsulta.Resposta)
+                        {
+                            PiorConsulta = c;
+                        }
+                    }
+
                     db.Entry<Consulta>(c).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
+
+                    i++;
                 }
-                resultado = db.Consulta.Include("Produto").Where(x => x.ProdutoId == produtoId).ToList();
-                return Request.CreateResponse(HttpStatusCode.OK, resultado);
+
+                produto.Economia = PiorConsulta.Resposta - MelhorConsulta.Resposta;
+                produto.MelhorConsulta = MelhorConsulta.Id;
+                produto.PiorConsulta = PiorConsulta.Id;
+                db.Entry<Produto>(produto).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                consultas = db.Consulta.Include("Produto").Where(x => x.ProdutoId == produtoId).ToList();
+                return Request.CreateResponse(HttpStatusCode.OK, consultas);
             }
             catch
             {
@@ -101,14 +137,24 @@ namespace DFind.Api.Controllers
         }
 
         [HttpGet]
-        [Route("varreduraSpeed")]
-        public HttpResponseMessage varreduraSpeed()
+        [Route("varredura/{dental}")]
+        public HttpResponseMessage varreduraSpeed(string dental)
         {
             try
             {
-                ExeSpeed exeSpeed = new ExeSpeed();
-                exeSpeed.exe("https://dentalspeed.com/grupo/contra-angulo-protese");
-                ArrayList arrayList = exeSpeed.getDentalSpeed();
+                ArrayList arrayList = new ArrayList();
+                if ( dental == "speed")
+                {
+                    Exe exe = new Exe();
+                    exe.exeSpeed("https://dentalspeed.com/grupo/instrumento-de-alta-rotacao");
+                    arrayList = exe.getArrayList();
+                }
+                else if (dental == "cremer")
+                {
+                    Exe exe = new Exe();
+                    exe.exeCremer("https://www.dentalcremer.com.br/departamento/855347/acessorio-para-autoclave");
+                    arrayList = exe.getArrayList();
+                }
                 foreach (Verificacao v in arrayList)
                 {
                     
@@ -116,19 +162,19 @@ namespace DFind.Api.Controllers
                     if (res != null)
                     {
 
-                        var resultado = db.Consulta.Where(x => x.site == v.site).ToList();
+                        var resultado = db.Consulta.Where(x => x.Site == v.Site).ToList();
                         if(resultado == null)
                         {
                             Consulta consulta = new Consulta();
                             consulta.ProdutoId = res.Id;
-                            consulta.site = v.site;
-                            consulta.caminho = v.caminho;
-                            consulta.descricao = v.descricao;
+                            consulta.Site = v.Site;
+                            consulta.Caminho = v.Caminho;
+                            consulta.Descricao = v.Descricao;
                             consulta.Titulo = v.Titulo;
 
                             consulta.PesquisarPreco();
 
-                            if (consulta.preco != null)
+                            if (consulta.RespostaString != null)
                             {
                                 db.Consulta.Add(consulta);
                                 db.SaveChanges();
@@ -145,14 +191,14 @@ namespace DFind.Api.Controllers
                         db.SaveChanges();
                         Consulta consulta = new Consulta();
                         consulta.ProdutoId = produto.Id;
-                        consulta.site = v.site;
-                        consulta.caminho = v.caminho;
-                        consulta.descricao = v.descricao;
+                        consulta.Site = v.Site;
+                        consulta.Caminho = v.Caminho;
+                        consulta.Descricao = v.Descricao;
                         consulta.Titulo = v.Titulo;
 
                         consulta.PesquisarPreco();
 
-                        if (consulta.preco != null)
+                        if (consulta.RespostaString != null)
                         {
                             db.Consulta.Add(consulta);
                             db.SaveChanges();
@@ -166,7 +212,6 @@ namespace DFind.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao add produto");
             }
         }
-
 
         [HttpPost]
         [Route("produto")]
@@ -245,7 +290,7 @@ namespace DFind.Api.Controllers
             {
                 consulta.PesquisarPreco();
 
-                if (consulta.preco != null)
+                if (consulta.RespostaString != null)
                 {
                     db.Consulta.Add(consulta);
                     db.SaveChanges();

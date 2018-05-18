@@ -12,7 +12,7 @@
               <h2>{{produto.titulo}}</h2>
             </div>
             <div class="preco">
-              <h1>{{produto.melhorConsulta.preco}}</h1>
+              <h1>{{produto.melhorConsulta.respostaString}}</h1>
             </div>
             <div id=but >
               <a class="but" v-bind:href="produto.melhorConsulta.site">
@@ -46,6 +46,7 @@ export default {
       produto: {
         titulo: '',
         imagem: '',
+        idMelhorConsulta: '',
         consultas: [],
         melhorConsulta: {}
       }
@@ -65,31 +66,18 @@ export default {
     SuccessGetP: function (dataR) {
       this.produto.titulo = dataR.data[0].titulo;
       this.produto.imagem = dataR.data[0].imagem;
+      this.produto.idMelhorConsulta = dataR.data[0].melhorConsulta;
+
     },
     SuccessGetC: function (dataR) {
-      console.log(dataR);
-      for (var i = 0; i < dataR.data.length; i++) {
-        this.produto.consultas.push({ preco: dataR.data[i].preco, titulo: dataR.data[i].titulo, descricao: dataR.data[i].descricao, site: dataR.data[i].site  });
-        if(i==0){
-          this.produto.melhorConsulta = { preco: dataR.data[0].preco, titulo: dataR.data[0].titulo, descricao: dataR.data[0].descricao, site: dataR.data[0].site}
-        }
-        else{
-          if( (this.sTI(this.produto.melhorConsulta.preco)) > (this.sTI(this.produto.consultas[i].preco) ) ){
-            this.produto.melhorConsulta = { preco: dataR.data[i].preco, titulo: dataR.data[i].titulo, site: dataR.data[0].site }
-          }
+      this.produto.consultas = dataR.data;
+      for (let i = 0; i < this.produto.consultas.length; i++) {
+        if(this.produto.consultas[i].id == this.produto.idMelhorConsulta){
+          this.produto.melhorConsulta = this.produto.consultas[i];
         }
       }
     },
-    FailureGet: function (data) { console.log('error', data); },
-    sTI: function (numero) {
-      if(numero !== null){
-        numero = numero.replace("R$","");
-        numero = numero.replace(".","");
-        numero = numero.replace(",","");
-        numero = parseInt(numero);
-        return numero;
-      }
-    }
+    FailureGet: function (data) { console.log('error', data); }
   },
 
 }

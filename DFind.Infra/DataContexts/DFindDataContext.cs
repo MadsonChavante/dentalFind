@@ -21,7 +21,7 @@ namespace DFind.Infra.DataContexts
         {
             modelBuilder.Configurations.Add(new ProdutoMap());
             modelBuilder.Configurations.Add(new CategoriaMap());
-            modelBuilder.Configurations.Add(new ComparacaoMap());
+            modelBuilder.Configurations.Add(new consultaMap());
             base.OnModelCreating(modelBuilder);
         }
     }

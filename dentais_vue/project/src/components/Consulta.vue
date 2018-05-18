@@ -6,7 +6,7 @@
       </div>
       <div class="preco">
         <h5>{{todo.descricao}}</h5>
-        <h1>{{todo.preco}}</h1>
+        <h1>{{todo.respostaString}}</h1>
       </div>
       <div id=but>
         <a class="but" v-bind:href="todo.site">

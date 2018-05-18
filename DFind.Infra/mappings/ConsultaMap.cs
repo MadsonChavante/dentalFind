@@ -3,16 +3,17 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace DFind.Infra.mappings
 {
-    class ComparacaoMap : EntityTypeConfiguration<Consulta>
+    class consultaMap : EntityTypeConfiguration<Consulta>
     {
-        public ComparacaoMap()
+        public consultaMap()
         {
             ToTable("Consulta");
 
             HasKey(x => x.Id);
-            Property(x => x.Titulo).HasMaxLength(60).IsRequired();
-
             HasRequired(x => x.Produto);
+            
+            Property(x => x.Titulo).HasMaxLength(60).IsRequired();
+            
         }
     }
 }
