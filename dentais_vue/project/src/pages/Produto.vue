@@ -170,4 +170,28 @@ export default {
   color: chartreuse;
 }
 
+/*celular*/
+@media screen and (max-width: 425px) {
+  .contenier{
+    padding: 5px;
+    margin: 0px;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .info{
+    margin: 0px;
+    width: 90%;
+    margin-top: -15px;
+  }
+  .img{
+    margin: 0px;
+    width: 90%;
+  }
+}
+/*tablet*/
+@media screen and (max-width: 768px) {
+
+}
+
 </style>

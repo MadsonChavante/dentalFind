@@ -15,4 +15,9 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+.sugestao{
+  position: relative;
+  z-index:5;
+}
 </style>

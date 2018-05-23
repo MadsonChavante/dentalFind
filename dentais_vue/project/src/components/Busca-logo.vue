@@ -15,10 +15,9 @@ export default {
 
 <style lang="css" scoped>
 .contenier {
+  position: static;
   width: 100%;
   height: 300px;
-  padding-left: auto;
-  padding-right: auto;
   display: flex;
   align-items: center;
   flex-direction: column;

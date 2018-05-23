@@ -7,13 +7,43 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DFind.Domain
 {
     public static class Distance
     {
-        public static string RemoveAccents(this string text)
+        public static string Limpar(string text)
+        {
+            text = RemoveAdjetivoCor(text);
+
+            text = text.Replace(" ", "").Replace("-", "").Replace(".", "").Replace(",", "").Replace(";", "").Replace(":", "").Replace("/", "");
+
+            text = Regex.Replace(text, "c/ Refrig.", "", RegexOptions.IgnoreCase);
+
+            return text;
+        }
+            public static bool Similarity(string source, string target)
+        {
+            bool valor = false;
+            if (Distance.CalculateSimilarity(source, target) > 0.98)
+            {
+                valor = true;
+            }
+            return valor;
+        }
+            public static string RemoveAdjetivoCor(this string titulo)
+        {
+            titulo = Regex.Replace(titulo, "rosa", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "azul", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "preto", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "verde", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "vermelho", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "branca", "", RegexOptions.IgnoreCase);
+            return titulo;
+        }
+            public static string RemoveAccents(this string text)
         {
             StringBuilder sbReturn = new StringBuilder();
             var arrayText = text.Normalize(NormalizationForm.FormD).ToCharArray();
@@ -26,6 +56,14 @@ namespace DFind.Domain
         }
         public static double CalculateSimilarity(string source, string target)
         {
+
+            source = RemoveAccents(source);
+            target = RemoveAccents(target);
+            source = source.ToUpper();
+            target = target.ToUpper();
+            source = Limpar(source);
+            target = Limpar(target);
+
             if ((source == null) || (target == null)) return 0.0;
             if ((source.Length == 0) || (target.Length == 0)) return 0.0;
             if (source == target) return 1.0;
@@ -88,6 +126,10 @@ namespace DFind.Domain
         {
             return this.arrayList;
         }
+        public void clearArrayList()
+        {
+            this.arrayList.Clear();
+        }
         public HtmlDocument StringToHtml(string site)
         {
             HtmlDocument htmlDoc = new HtmlDocument();
@@ -103,6 +145,7 @@ namespace DFind.Domain
         {
             try
             {
+
                 var htmlDoc = StringToHtml(site);
                 try
                 {
@@ -129,20 +172,16 @@ namespace DFind.Domain
                 }
                 catch
                 {
-
-                    Console.WriteLine(htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-name']/h1").InnerHtml);
-                    Console.WriteLine(htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-price-price']").InnerHtml);
-                    string str = htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-shortDescription']").InnerHtml.ToString();
-                    str = str.TrimStart();
-                    Console.WriteLine(str);
+                    
 
                     Verificacao verificacao = new Verificacao();
                     verificacao.Caminho = "//*[@class='product-price-price']";
-                    verificacao.Descricao = htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-shortDescription']").InnerHtml;
+                    
                     verificacao.Titulo = htmlDoc.DocumentNode.SelectSingleNode("/html/head/meta[13]").GetAttributeValue("content", "erro no modelo");
-                    verificacao.Site = site;
+                    verificacao.Site = htmlDoc.DocumentNode.SelectSingleNode("//*[@rel='canonical']").GetAttributeValue("href", "erro no modelo").ToString();
                     verificacao.Imagem = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='imgPrincipalProduto']").GetAttributeValue("src", "erro na imagem do produto");
-
+                    byte[] byt = Encoding.Default.GetBytes(htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-shortDescription']").InnerHtml.ToString());
+                    verificacao.Descricao = Encoding.UTF8.GetString(byt);
 
                     byte[] bytes = Encoding.Default.GetBytes(htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-name']/h1").InnerText.ToString());
                     string nome = Encoding.UTF8.GetString(bytes);
@@ -191,9 +230,14 @@ namespace DFind.Domain
                 {
                     Verificacao verificacao = new Verificacao();
                     verificacao.Caminho = "//*[@id='mostra-valores']/span[2]/span[2]";
-                    verificacao.Descricao = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='modelo-vitrine']/div[1]/h2/p").InnerHtml;
+
+                    
+                    byte[] byt = Encoding.Default.GetBytes(htmlDoc.DocumentNode.SelectSingleNode("//*[@id='modelo-vitrine']/div[1]/h2").InnerHtml.ToString());
+                    verificacao.Descricao = Encoding.UTF8.GetString(byt);
+
+
                     verificacao.Titulo = htmlDoc.DocumentNode.SelectSingleNode("/html/head/meta[6]").GetAttributeValue("content", "erro no modelo");
-                    verificacao.Site = site;
+                    verificacao.Site = htmlDoc.DocumentNode.SelectSingleNode("//*[@rel='canonical']").GetAttributeValue("href", "erro no modelo").ToString();
                     verificacao.Imagem = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='modelo-vitrine']/div[1]/div/div/span[1]/img").GetAttributeValue("src", "erro na imagem do produto");
                     
                     string marca = htmlDoc.DocumentNode.SelectSingleNode("//*[@id='modelo-vitrine']/div[1]/span").InnerHtml;

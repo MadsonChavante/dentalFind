@@ -23,7 +23,33 @@ namespace DFind.Api.Controllers
         public HttpResponseMessage pesquisarProdutos(string algo)
         {
             Regex ER = new Regex(algo, RegexOptions.IgnoreCase);
-            var resultado = db.Produtos.Include("Categoria").ToList();
+            var resultado = db.Produtos.Include("Categoria").OrderByDescending(x => x.Economia).ToList();
+            var encontrados = new ArrayList();
+            String[] tituloProdutos = new String[resultado.Count];
+
+            for (int i = 0; i < resultado.Count; i++)
+            {
+                tituloProdutos[i] = resultado[i].Titulo;
+            }
+
+
+            for (int i = 0; i < tituloProdutos.Length; i++)
+            {
+                if (ER.IsMatch(tituloProdutos[i]))
+                {
+                    encontrados.Add(resultado[i]);
+                }
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, encontrados);
+        }
+
+        [HttpGet]
+        [Route("sugestoes/{algo}")]
+        public HttpResponseMessage sugestoesProdutos(string algo)
+        {
+            Regex ER = new Regex(algo, RegexOptions.IgnoreCase);
+            var resultado = db.Produtos.Include("Categoria").OrderByDescending(x => x.Economia).ToList();
             var encontrados = new ArrayList();
             String[] tituloProdutos = new String[resultado.Count];
 
@@ -93,9 +119,32 @@ namespace DFind.Api.Controllers
             }
             try
             {
-                int i = 0;
+                
                 foreach (Consulta c in consultas)
                 {
+                    var iguais = consultas.Where(x => x.Site == c.Site).ToList();
+                    if (iguais.Count > 1)
+                    {
+                        try
+                        {
+                            for (int x = 1; x < iguais.Count; x++)
+                            {
+                                db.Consulta.Remove(iguais[x]);
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        db.SaveChanges();
+                    }
+                }
+                
+                int i = 0;
+                consultas = db.Consulta.Include("Produto").Where(x => x.ProdutoId == produtoId).ToList();
+                foreach (Consulta c in consultas)
+                {
+                    
                     c.PesquisarPreco();
 
                     if (i == 0)
@@ -137,58 +186,60 @@ namespace DFind.Api.Controllers
         }
 
         [HttpGet]
-        [Route("varredura/{dental}")]
-        public HttpResponseMessage varreduraSpeed(string dental)
+        [Route("varredura")]
+        public HttpResponseMessage varredura()
         {
             try
             {
+
+
                 ArrayList arrayList = new ArrayList();
-                if ( dental == "speed")
-                {
-                    Exe exe = new Exe();
-                    exe.exeSpeed("https://dentalspeed.com/grupo/instrumento-de-alta-rotacao");
-                    arrayList = exe.getArrayList();
-                }
-                else if (dental == "cremer")
-                {
-                    Exe exe = new Exe();
-                    exe.exeCremer("https://www.dentalcremer.com.br/departamento/855347/acessorio-para-autoclave");
-                    arrayList = exe.getArrayList();
-                }
+                Exe exe = new Exe();
+                exe.clearArrayList();
+                //exe.exeSpeed("https://dentalspeed.com/grupo/kit-pecas-de-mao");
+                exe.exeCremer("https://www.dentalcremer.com.br/departamento/854803/kit-academico");
+                arrayList = exe.getArrayList();
+                
                 foreach (Verificacao v in arrayList)
                 {
-                    
-                    var res = db.Produtos.Where(x => x.Titulo == v.ProdutoNome).FirstOrDefault();
+
+                    var produtos = db.Produtos.ToArray();
+                    Produto res = null;
+                    for(int i = 0; i < produtos.Length; i++)
+                    {
+                        Produto p = produtos[i];
+                        if (Distance.Similarity(p.Titulo, v.ProdutoNome))
+                        {
+                            res = p;
+                            i = produtos.Length;
+                        }
+                    }
+
                     if (res != null)
                     {
+                        
+                        Consulta consulta = new Consulta();
+                        consulta.ProdutoId = res.Id;
+                        consulta.Site = v.Site;
+                        consulta.Caminho = v.Caminho;
+                        consulta.Descricao = v.Descricao;
+                        consulta.Titulo = v.Titulo;
 
-                        var resultado = db.Consulta.Where(x => x.Site == v.Site).ToList();
-                        if(resultado == null)
+                        consulta.PesquisarPreco();
+
+                        if (consulta.RespostaString != null)
                         {
-                            Consulta consulta = new Consulta();
-                            consulta.ProdutoId = res.Id;
-                            consulta.Site = v.Site;
-                            consulta.Caminho = v.Caminho;
-                            consulta.Descricao = v.Descricao;
-                            consulta.Titulo = v.Titulo;
-
-                            consulta.PesquisarPreco();
-
-                            if (consulta.RespostaString != null)
-                            {
-                                db.Consulta.Add(consulta);
-                                db.SaveChanges();
-                            }
+                            db.Consulta.Add(consulta);                                
                         }
+                        
                     }
                     else
                     {
                         Produto produto = new Produto();
-                        produto.Titulo = v.ProdutoNome;
+                        produto.Titulo = Distance.RemoveAdjetivoCor(v.ProdutoNome);
                         produto.CategoriaId = 1;
                         produto.imagem = v.Imagem;
                         db.Produtos.Add(produto);
-                        db.SaveChanges();
                         Consulta consulta = new Consulta();
                         consulta.ProdutoId = produto.Id;
                         consulta.Site = v.Site;
@@ -201,10 +252,13 @@ namespace DFind.Api.Controllers
                         if (consulta.RespostaString != null)
                         {
                             db.Consulta.Add(consulta);
-                            db.SaveChanges();
                         }
-                    }    
+                        
+                    }
+
+                    db.SaveChanges();
                 }
+                
                 return Request.CreateResponse(HttpStatusCode.InternalServerError,"ok");
             }
             catch

@@ -7,13 +7,7 @@ using System.Text;
 
 public static class cremer
 {
-    public static void Main()
-    {
-        Console.WriteLine(CalculateSimilarity("prduto","produto"));
-        //Console.WriteLine(getTitulo("https://dentalspeed.com/area/uso-continuo"));
-        //exe("https://www.dentalcremer.com.br/departamento/854716/perifericos-e-pecas-de-mao");
-        //exe("https://dentalspeed.com/area/uso-continuo");
-    }
+    
     public static string RemoveAccents(this string text)
         {
             StringBuilder sbReturn = new StringBuilder();
@@ -27,11 +21,22 @@ public static class cremer
         }
         public static double CalculateSimilarity(string source, string target)
         {
+            
             source = RemoveAccents(source);
             target = RemoveAccents(target);
+            source = source.ToUpper();
+            target = target.ToUpper();
+            
+            source = source.Replace(" ", "").Replace("-", "");
+            target = target.Replace(" ", "").Replace("-", "");
+
+            Console.WriteLine(source);
+            Console.WriteLine(target);            
+
             if ((source == null) || (target == null)) return 0.0;
             if ((source.Length == 0) || (target.Length == 0)) return 0.0;
             if (source == target) return 1.0;
+            
 
             int stepsToSame = ComputeLevenshteinDistance(source, target);
             return (1.0 - ((double)stepsToSame / (double)Math.Max(source.Length, target.Length)));
@@ -117,6 +122,9 @@ public static class cremer
                 Console.WriteLine(htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-name']/h1").InnerHtml);
                 Console.WriteLine(htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-price-price']").InnerHtml);
                 string str =  htmlDoc.DocumentNode.SelectSingleNode("//*[@class='product-shortDescription']").InnerHtml.ToString();
+                str = str.TrimStart();
+                Console.WriteLine(str);
+                str = htmlDoc.DocumentNode.SelectSingleNode("//*[@rel='canonical']").GetAttributeValue("href","erro no modelo").ToString();
                 str = str.TrimStart();
                 Console.WriteLine(str);
             }

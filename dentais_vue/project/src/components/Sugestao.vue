@@ -31,7 +31,7 @@ export default {
 .sugestao{
   margin-top: -4px;
   border: 0.2px solid #f3f1f1;
-  z-index: 0;
+  z-index: 1;
   display: flex;
   width: 500px;
   height: 70px;
@@ -50,5 +50,17 @@ export default {
 img{
   width: 50px;
   height: 50px;
+}
+/*tablet*/
+@media screen and (max-width: 768px) {
+  .sugestao{
+    width: 400px;
+  }
+}
+/*celular*/
+@media screen and (max-width: 425px) {
+  .sugestao{
+    width: 300px;
+  }
 }
 </style>

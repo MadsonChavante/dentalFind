@@ -195,4 +195,14 @@ export default {
     width: 0px;
   }
 }
+
+/*tablet*/
+@media screen and (max-width: 768px) {
+  .nav {
+    position: relative;
+  }
+}
+/*celular*/
+@media screen and (max-width: 425px) {
+}
 </style>

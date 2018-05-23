@@ -33,9 +33,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .contenier_produto{
   display: flex;
   flex-direction: row;
+  z-index: -1;
 }
 .card_produto{
   margin: 30px;
@@ -47,11 +49,12 @@ export default {
 .img_produto{
   display: flex;
   justify-content: center;
+  z-index: -1;
 }
 .img_produto>img{
   width: 80%;
   height: 80%;
-  -webkit-transition:2s;
+  -webkit-transition:1s;
 }
 .img_produto>img:hover{
   width: 100%;

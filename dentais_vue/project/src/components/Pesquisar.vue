@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="pesquisa">
-      <input id="p" class="pesquisa" type="search" placeholder="Pesquise" v-on:keyup="getSugestoes" >
+      <input id="p" autocomplete="off" class="pesquisa" type="search" placeholder="Pesquise" v-on:keyup="getSugestoes" >
     </div>
     <div class="sugestoes">
       <Sugestao v-for="categoria in itens" v-bind:todo="categoria" v-bind:key="categoria.id" />
@@ -31,8 +31,8 @@ export default {
     getSugestoes: function () {
       this.itens = [];
       var algo = document.getElementById('p').value;
-      if(algo !== ""){
-        this.axios.get("http://localhost:18612/pesquisar/"+algo)
+      if(algo !== "" && algo.length > 3){
+        this.axios.get("http://localhost:18612/sugestoes/"+algo)
           .then(this.SuccessGet)
           .catch(console.log(""));
       }
@@ -61,16 +61,6 @@ export default {
   box-shadow: 0 0 1em #808080;
   padding: 5px;
 }
-@media screen and (max-width: 828px) {
-  #pesquisa{
-    width: 400px;
-  }
-}
-@media screen and (max-width: 600px) {
-  #pesquisa{
-    width: 300px;
-  }
-}
 .pesquisa {
   background-color: transparent;
   border: none;
@@ -92,5 +82,24 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/*tablet*/
+@media screen and (max-width: 768px) {
+  #pesquisa{
+    width: 400px;
+  }
+  .pesquisa{
+    width: 90%;
+  }
+}
+/*celular*/
+@media screen and (max-width: 425px) {
+  #pesquisa{
+    width: 300px;
+  }
+  .pesquisa{
+    width: 90%;
+  }
 }
 </style>
