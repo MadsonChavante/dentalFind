@@ -74,6 +74,22 @@ namespace DFind.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, encontrados);
         }
 
+        [HttpGet]
+        [Route("produtos/sugestoes")]
+        public HttpResponseMessage sugestoesP()
+        {
+            var resultado = db.Produtos.OrderByDescending(x => x.Economia).ToList();
+            var encontrados = new ArrayList();
+            for (int i = 0; i < 5; i++)
+            {
+                
+                encontrados.Add(resultado[i]);
+               
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, encontrados);
+        }
+
         [Route("produtos")]
         public HttpResponseMessage GetProdutos()
         {
@@ -87,6 +103,13 @@ namespace DFind.Api.Controllers
             var resultado = db.Produtos.Include("Categoria").Where(x => x.Id == produtoId);
             Produto p = resultado.First();
 
+            return Request.CreateResponse(HttpStatusCode.OK, resultado);
+        }
+
+        [Route("consulta/{consultaId}")]
+        public HttpResponseMessage Getconsulta(int consultaId)
+        {
+            var resultado = db.Consulta.Where(x => x.Id == consultaId).FirstOrDefault();
             return Request.CreateResponse(HttpStatusCode.OK, resultado);
         }
 

@@ -50,6 +50,7 @@ export default {
 </script>
 
 <style scoped>
+
 .img-home {
   position: absolute;
   margin-left: 50px;

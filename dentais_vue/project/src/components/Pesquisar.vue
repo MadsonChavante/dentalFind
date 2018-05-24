@@ -53,7 +53,7 @@ export default {
 
 <style lang="css" scoped>
 #pesquisa {
-  margin-top: 95px;
+
   height: 40px;
   width: 500px;
   background: white;
