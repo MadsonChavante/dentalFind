@@ -70,5 +70,16 @@ export default {
   align-items: center;
   height: 300px;
 }
-
+/*tablet*/
+@media screen and (max-width: 768px) {
+  .teste{
+    justify-content: flex-start;
+  }
+}
+/*celular*/
+@media screen and (max-width: 425px) {
+  .sugestao{
+    width: 300px;
+  }
+}
 </style>

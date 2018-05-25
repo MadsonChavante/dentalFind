@@ -16,6 +16,10 @@ export default {
   padding: 0;
 }
 
+.resulatdos{
+  position: relative;
+  z-index: 1;
+}
 .sugestao{
   position: relative;
   z-index:5;

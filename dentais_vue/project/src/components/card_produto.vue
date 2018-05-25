@@ -1,6 +1,6 @@
 <template>
 <div class="contenier_produtos">
-  <router-link :to="{path:url}" tag="div">
+  <div @click="go">
       <div class="card_produto">
         <div class="img_produto">
           <img :src="todo.imagem">
@@ -12,7 +12,7 @@
           <h6>Economize: R${{todo.economia}}</h6>
         </div>
       </div>
-  </router-link>
+  </div>
 </div>
 </template>
 <script>
@@ -26,6 +26,10 @@ export default {
     .catch();
   },
   methods: {
+    go: function () {
+
+      this.$router.push('/produto/'+this.todo.id)
+    },
     SuccessGet: function (data) {
       this.precoString = data.data.respostaString
     }

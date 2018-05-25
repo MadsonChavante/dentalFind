@@ -1,6 +1,5 @@
 <template>
-  <div >
-    <router-link :to="{path:url}" tag="div">
+    <div @click="go">
       <div class="sugestao">
         <div class="img">
           <img :src="todo.imagem"/>
@@ -9,8 +8,7 @@
           {{ todo.titulo }}
         </div>
       </div>
-    </router-link>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -24,6 +22,11 @@ export default {
   },
   name: 'Sugestao',
   props: ['todo'],
+  methods:{
+    go: function (){
+      this.$router.push('/produto/'+this.todo.id)
+    }
+  }
 }
 </script>
 
