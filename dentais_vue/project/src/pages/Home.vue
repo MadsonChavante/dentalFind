@@ -2,9 +2,12 @@
   <div class="hello">
     <Topo />
     <busca />
+    <Categorias/>
     <div class="teste">
       <Card v-for="produto in itens" v-bind:todo="produto" v-bind:key="produto.id" />
     </div>
+    <Card v-for="produto in itens" v-bind:todo="produto" v-bind:key="produto.id" />
+    <Card v-for="produto in itens" v-bind:todo="produto" v-bind:key="produto.id" />
   </div>
 </template>
 
@@ -12,11 +15,13 @@
 
 import Topo from '@/components/Topo'
 import Busca from '@/components/Busca-logo'
+import Categorias from '@/components/Categorias'
 import Card from '@/components/Card_produto'
+
 
 export default {
   name: 'Home',
-  components: { Topo, Busca, Card },
+  components: { Topo, Busca, Categorias, Card },
   created: function(){
     this.axios.get("http://localhost:18612/produtos/sugestoes")
       .then(this.SuccessGet)
