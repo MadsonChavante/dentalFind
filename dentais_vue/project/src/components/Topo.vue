@@ -7,14 +7,15 @@
         <div class="bar3"></div>
       </div>
       <a href="#"><span @click="toggleFunc()" id="categorias">CATEGORIAS</span></a>
+      <div>
+        <router-link to="/" class="text" exact><img  class="logo" src="@/assets/logo3.png" /></router-link>
+      </div>
       <div id="menu-vertical" class="menu-vertical">
         <div class="nav_vertical" v-for="categoria in categorias" :key="categoria.id">
-          <router-link :to="{path:'categorias/' + categoria.id + '/produtos'}" class="text" exact>{{categoria.titulo}}</router-link>
+          <router-link :to="{path:'/categoria/' + categoria.id}" class="text" exact>{{categoria.titulo}}</router-link>
         </div>
       </div>
-      <!--<div class="img-home">
-        <router-link to="/" class="text" exact><img class="home" src="@/assets/home.png" /></router-link>
-      </div>
+      <!--
       -->
     </div>
   </nav>
@@ -67,11 +68,6 @@ export default {
   position: absolute;
   margin-left: 50px;
 }
-.home {
-  margin: 6px 0;
-  height: 20px;
-  width: 20px;
-}
 .text {
   text-decoration: none;
   font-size: 18px;
@@ -113,13 +109,19 @@ export default {
   align-items: center;
   flex-direction: column;
   padding: 0px;
-  margin-top: 25px;
+  margin-top: 5px;
   margin-left: -15px;
   box-shadow: 0px 0px 15px #000;
   background-color: #ffffff;
 }
+.logo{
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 60px;
+  height: 30px;
+}
 .menu-vertical {
-  display: flex;
+  display: none;
   animation: modalOut 0s linear forwards;
 }
 .menu-vertical-aberto {
@@ -130,6 +132,7 @@ export default {
 }
 .menu-vertical-fechado {
   opacity: 1;
+  display: none;
   animation: modalOut 0.2s linear forwards;
 }
 .nav_vertical {
@@ -262,9 +265,12 @@ a{
 }
 }
 /*celular*/
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 1090px) {
   #categorias{
     display: none;
+  }
+  .logo{
+    margin-left: -95px;
   }
 }
 </style>

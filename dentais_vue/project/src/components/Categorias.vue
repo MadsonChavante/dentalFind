@@ -21,6 +21,7 @@ export default {
   methods: {
     getCategorias: function () {
       // GET
+      var invocation = new XMLHttpRequest();
       this.axios.get("http://localhost:18612/categorias", )
         .then(this.SuccessGet)
         .catch(FailureGet);

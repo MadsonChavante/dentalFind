@@ -27,6 +27,10 @@ namespace DFind.Domain
         {
             return this.Titulo;
         }
-
+        public void Inicializar(Consulta consulta)
+        {
+            this.MelhorConsulta = consulta.Id;
+            this.PiorConsulta = consulta.Id;
+        }
     }
 }

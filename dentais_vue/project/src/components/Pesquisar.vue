@@ -62,6 +62,12 @@ export default {
           barra.className = 'sugestoes';
         }
       }
+      else{
+        var barra = document.getElementById('pesquisa');
+        barra.className = 'barra';
+        barra = document.getElementById('sugestoes');
+        barra.className = 'sugestoes';
+      }
     }
   },
   created: function () {
@@ -95,7 +101,7 @@ export default {
   align-items: center;
   justify-content: center;
   position: fixed;
-  margin-top: -150px;
+  margin-top: -162px;
   margin-left: -255px;
   height: 40px;
   width: 500px;

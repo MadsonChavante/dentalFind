@@ -93,8 +93,13 @@ namespace DFind.Api.Controllers
         [Route("produtos")]
         public HttpResponseMessage GetProdutos()
         {
-            var resultado = db.Produtos.Include("Categoria").ToList();
-            return Request.CreateResponse(HttpStatusCode.OK, resultado);
+            var resultado = db.Produtos.ToList();
+            ArrayList arrayList = new ArrayList();
+            foreach(Produto p in resultado)
+            {
+                arrayList.Add(p.Id);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, arrayList);
         }
 
         [Route("produtos/{produtoId}")]
@@ -219,9 +224,10 @@ namespace DFind.Api.Controllers
                 ArrayList arrayList = new ArrayList();
                 Exe exe = new Exe();
                 exe.clearArrayList();
-                //exe.exeSpeed("https://dentalspeed.com/grupo/kit-pecas-de-mao");
-                exe.exeCremer("https://www.dentalcremer.com.br/departamento/854803/kit-academico");
+                exe.exeSpeed("https://dentalspeed.com/grupo/motor-p-endodontia");
+                //exe.exeCremer("https://www.dentalcremer.com.br/departamento/854748/motor-para-clinica");
                 arrayList = exe.getArrayList();
+                int categoriaId = 4;
                 
                 foreach (Verificacao v in arrayList)
                 {
@@ -260,9 +266,10 @@ namespace DFind.Api.Controllers
                     {
                         Produto produto = new Produto();
                         produto.Titulo = Distance.RemoveAdjetivoCor(v.ProdutoNome);
-                        produto.CategoriaId = 1;
+                        produto.CategoriaId = categoriaId;
                         produto.imagem = v.Imagem;
                         db.Produtos.Add(produto);
+
                         Consulta consulta = new Consulta();
                         consulta.ProdutoId = produto.Id;
                         consulta.Site = v.Site;
@@ -275,8 +282,12 @@ namespace DFind.Api.Controllers
                         if (consulta.RespostaString != null)
                         {
                             db.Consulta.Add(consulta);
+                            produto.Economia = 0;
+                            produto.MelhorConsulta = consulta.Id;
+                            produto.PiorConsulta = consulta.Id;
                         }
-                        
+                        db.Produtos.Add(produto);
+
                     }
 
                     db.SaveChanges();
@@ -406,6 +417,72 @@ namespace DFind.Api.Controllers
             catch
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao deletar a consulta");
+            }
+        }
+
+
+        [HttpPost]
+        [Route("categoria")]
+        public HttpResponseMessage PostCategoria(Categoria categoria)
+        {
+            if (categoria == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            try
+            {
+                db.Categorias.Add(categoria);
+                db.SaveChanges();
+
+                var result = categoria;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao add consulta");
+            }
+        }
+
+
+        [HttpDelete]
+        [Route("categoria")]
+        public HttpResponseMessage deleteCategoria(int categoriaId)
+        {
+            if (categoriaId <= 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            try
+            {
+                db.Produtos.Remove(db.Produtos.Find(categoriaId));
+                db.SaveChanges();
+
+                return Request.CreateResponse(HttpStatusCode.OK, "produto deletado");
+            }
+            catch
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao deletar o produto");
+            }
+        }
+        [HttpPut]
+        [Route("categoria")]
+        public HttpResponseMessage putCategoria(Categoria categoria)
+        {
+            if (categoria == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            try
+            {
+                db.Entry<Categoria>(categoria).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                var result = categoria;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "falha ao atualizar produto");
             }
         }
 

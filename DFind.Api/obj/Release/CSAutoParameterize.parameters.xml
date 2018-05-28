@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DFindConnectionString-Web.config Connection String" description="DFindConnectionString A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=DESKTOP-F91JL84\SQLEXPRESS;Initial Catalog=DF;User ID=sa;Password=sqlserver;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Madson\\Documents\\dentalFind\\DFind\.Api\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DFindConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,12 @@
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\DFind.Domain.dll.config
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\DFind.Domain.dll
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\DFind.Domain.pdb
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\HtmlAgilityPack.dll
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\MySql.Data.dll
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\HtmlAgilityPack.xml
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\bin\Release\MySql.Data.xml
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\obj\Release\DFind.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\obj\Release\DFind.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\obj\Release\DFind.Domain.dll
+C:\Users\Madson\Documents\dentalFind\DFind.Domain\obj\Release\DFind.Domain.pdb

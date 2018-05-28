@@ -18,9 +18,9 @@ namespace DFind.Domain
         {
             text = RemoveAdjetivoCor(text);
 
-            text = text.Replace(" ", "").Replace("-", "").Replace(".", "").Replace(",", "").Replace(";", "").Replace(":", "").Replace("/", "");
+            text = text.Replace(" ", "").Replace("-", "").Replace(".", "").Replace(",", "").Replace(";", "").Replace(":", "").Replace("/", "").Replace("p/", "").Replace("Starter", ""); 
 
-            text = Regex.Replace(text, "c/ Refrig.", "", RegexOptions.IgnoreCase);
+             text = Regex.Replace(text, "c/ Refrig.", "", RegexOptions.IgnoreCase);
 
             return text;
         }
@@ -41,6 +41,19 @@ namespace DFind.Domain
             titulo = Regex.Replace(titulo, "verde", "", RegexOptions.IgnoreCase);
             titulo = Regex.Replace(titulo, "vermelho", "", RegexOptions.IgnoreCase);
             titulo = Regex.Replace(titulo, "branca", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "prata", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "INTRA 500", "", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "Máscara Facial", "Máscara", RegexOptions.IgnoreCase); 
+            titulo = Regex.Replace(titulo, "20:1 PB - Driller", "20:1 - Driller", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "Motor p/ Endodontia", "Motor Endodôntico", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "Motor para Endodontia", "Motor Endodôntico", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "Motor X-Smart", "Motor Endodôntico X-Smart", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "Maillefer - Dentsply", "- DENTSPLY / MAILLEFER", RegexOptions.IgnoreCase);
+            titulo = Regex.Replace(titulo, "- Bivolt ", "", RegexOptions.IgnoreCase);
+
+
+
+
             return titulo;
         }
             public static string RemoveAccents(this string text)
@@ -57,12 +70,13 @@ namespace DFind.Domain
         public static double CalculateSimilarity(string source, string target)
         {
 
+            
+            source = Limpar(source);
+            target = Limpar(target);
             source = RemoveAccents(source);
             target = RemoveAccents(target);
             source = source.ToUpper();
             target = target.ToUpper();
-            source = Limpar(source);
-            target = Limpar(target);
 
             if ((source == null) || (target == null)) return 0.0;
             if ((source.Length == 0) || (target.Length == 0)) return 0.0;

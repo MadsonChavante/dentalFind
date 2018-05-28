@@ -3,11 +3,16 @@
     <Topo />
     <busca />
     <Categorias/>
+    <hr style="height:1px; border:none; color:#c3c3c3; background-color:#f5f5f5; margin: 100px; margin-bottom: 0px;"/>
+    <div class="texto">Dá uma olhada nas nossas sugestões:</div>
     <div class="teste">
       <Card v-for="produto in itens" v-bind:todo="produto" v-bind:key="produto.id" />
     </div>
-    <Card v-for="produto in itens" v-bind:todo="produto" v-bind:key="produto.id" />
-    <Card v-for="produto in itens" v-bind:todo="produto" v-bind:key="produto.id" />
+    <hr style="height:1px; border:none; color:#c3c3c3; background-color:#f5f5f5; margin: 100px; margin-bottom: 0px;"/>
+    <div class="texto">Por que DentalFind ?</div>
+    <div class="c">
+      <img  class="logo" src="@/assets/c.png" />
+    </div>
   </div>
 </template>
 
@@ -23,9 +28,10 @@ export default {
   name: 'Home',
   components: { Topo, Busca, Categorias, Card },
   created: function(){
-    this.axios.get("http://localhost:18612/produtos/sugestoes")
-      .then(this.SuccessGet)
-      .catch(console.log(""));
+
+  this.axios.get("http://localhost:18612/produtos/sugestoes")
+    .then(this.SuccessGet)
+    .catch(console.log(""));
 
   },
   methods:{
@@ -67,13 +73,26 @@ export default {
 *::before {
   box-sizing: border-box;
 }
-
+.texto{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  color: #00b0f0;
+  text-align: center;
+}
 .teste{
+  margin-top: 50px;
   display: flex;
   overflow-x: scroll;
   justify-content: center;
   align-items: center;
   height: 300px;
+}
+.c{
+  margin-top: 50px;
+}
+.c>img{
+  width: 100%;
+  height: auto;
 }
 /*tablet*/
 @media screen and (max-width: 768px) {

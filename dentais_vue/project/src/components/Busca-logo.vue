@@ -1,6 +1,6 @@
 <template>
   <div class="contenier" style="background-image: url('./static/img/background-doutor1.png');">
-    <img :src="'./static/img/logo.png'"/>
+    <img :src="'./static/img/logo2.png'"/>
     <div class="pesquisa">
       <Pesquisar/>
     </div>
@@ -31,8 +31,8 @@ export default {
 }
 .contenier>img{
   margin-top: 60px;
-  width: 250px;
-  height: 100px;
+  width: 350px;
+  height: 110px;
 }
 .pesquisa{
   display: flex;
@@ -46,7 +46,7 @@ export default {
   .contenier>img{
     margin-top: 0px;
     width: 150px;
-    height: 60px;
+    height: 50px;
 }
 }
 </style>

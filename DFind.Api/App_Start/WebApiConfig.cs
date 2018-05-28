@@ -12,15 +12,16 @@ namespace DFind.Api
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            var formatters = GlobalConfiguration.Configuration.Formatters;
-            var jsonFormatter = formatters.JsonFormatter;
-            var settings = jsonFormatter.SerializerSettings;
 
-            jsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
-            settings.Formatting = Formatting.Indented;
-            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+             var formatters = GlobalConfiguration.Configuration.Formatters;
+             var jsonFormatter = formatters.JsonFormatter;
+             var settings = jsonFormatter.SerializerSettings;
 
+             jsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
+             config.Formatters.Remove(config.Formatters.XmlFormatter);
+             settings.Formatting = Formatting.Indented;
+             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+             
             // New code
             config.EnableCors();
             
