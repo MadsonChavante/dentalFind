@@ -11,7 +11,7 @@
         <h1>{{todo.respostaString}}</h1>
       </div>
       <div id=but>
-        <a class="but" v-bind:href="todo.site">
+        <a class="but" v-bind:href="todo.site" target="_blank">
           Ir á loja
         </a>
       </div>

@@ -9,11 +9,11 @@ using System.Collections.Generic;
 
 public static class ini
 {
-    public static void Main()
-	{
+    //public static void Main()
+	//{
 		//exe("https://dentalspeed.com/segmento/pecas-de-mao");
-		exe();
-	}
+		//exe();
+	//}
 
     public static HtmlDocument StringToHtml(string site)
     {

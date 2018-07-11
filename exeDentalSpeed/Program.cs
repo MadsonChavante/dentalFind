@@ -7,19 +7,12 @@ using System.Net;
 
 public class Program
 {
-	//public static void Main()
-	//{
+	public static void Main() 
+	{
 		//exe("https://dentalspeed.com/segmento/pecas-de-mao");
-		//exe("https://dentalspeed.com/area/uso-continuo");
-	//}
+		exe("https://dentalspeed.com/area/uso-continuo");
+	}
 	
-    //public static void Main()
-    //{
-        //Console.WriteLine(CalculateSimilarity("https://dentalspeed.com/produto/kit-academico-intra-sigma-air-3s-pb-c-refrig-4-pecas-rosa-dentflex","https://dentalspeed.com/produto/kit-academico-intra-sigma-air-3s-pb-c-refrig-4-pecas-rosa-dentflex"));
-        //Console.WriteLine(getTitulo("https://dentalspeed.com/area/uso-continuo"));
-        //exe("https://www.dentalcremer.com.br/departamento/854716/perifericos-e-pecas-de-mao");
-        //exe("https://dentalspeed.com/area/uso-continuo");
-    //}
 	public static HtmlDocument StringToHtml(string site){
 	
 		HtmlDocument htmlDoc = new HtmlDocument();

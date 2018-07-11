@@ -15,7 +15,7 @@
               <h1>{{produto.melhorConsulta.respostaString}}</h1>
             </div>
             <div id=but >
-              <a class="but" v-bind:href="produto.melhorConsulta.site">
+              <a class="but" target="_blank" v-bind:href="produto.melhorConsulta.site">
                 Ir á loja
               </a>
             </div>

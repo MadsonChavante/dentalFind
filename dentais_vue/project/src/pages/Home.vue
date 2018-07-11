@@ -13,6 +13,7 @@
     <div class="c">
       <img  class="logo" src="@/assets/c.png" />
     </div>
+    <Rodape/>
   </div>
 </template>
 
@@ -22,11 +23,12 @@ import Topo from '@/components/Topo'
 import Busca from '@/components/Busca-logo'
 import Categorias from '@/components/Categorias'
 import Card from '@/components/Card_produto'
+import Rodape from '@/components/Rodape'
 
 
 export default {
   name: 'Home',
-  components: { Topo, Busca, Categorias, Card },
+  components: { Topo, Busca, Categorias, Card, Rodape },
   created: function(){
 
   this.axios.get("http://localhost:18612/produtos/sugestoes")
